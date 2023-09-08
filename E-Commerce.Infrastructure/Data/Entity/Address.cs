@@ -14,7 +14,7 @@ namespace E_Commerce.Infrastructure.Data.Entity
         public int AddressID { get; set; }
 
         [Required]
-        public string UserID { get; set; }
+        public string UserID { get; set; } = null!;
 
         [Required]
         [ForeignKey(nameof(UserID))]
