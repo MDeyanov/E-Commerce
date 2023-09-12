@@ -12,6 +12,6 @@ namespace E_Commerce.Core.Models
         public int WishlistID { get; set; }
 
         [Required(ErrorMessage = "UserID is required.")]
-        public string UserID { get; set; }
+        public string UserID { get; set; } = null!;
     }
 }

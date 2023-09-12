@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using static E_Commerce.Infrastructure.Data.Common.ValidationConstants.UserConstraints;
+using static E_Commerce.Infrastructure.Data.Common.Messages.UserMessages;
 
 namespace E_Commerce.Core.Models
 {
@@ -10,19 +11,19 @@ namespace E_Commerce.Core.Models
 
         [Required]
         [StringLength(UserNameMaxLength,
-                ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.",
+                ErrorMessage = NamesLenght,
                 MinimumLength = UserNameMinLength)]
         public string UserName { get; set; } = null!;
 
         [Required]  
         [StringLength(FirstNameMaxLength,
-                ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.",
+                ErrorMessage = NamesLenght,
                 MinimumLength = FirstNameMinLength)]
         public string FirstName { get; set; } = null!;
 
         [Required]
         [StringLength(LastNameMaxLength,
-                ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.",
+                ErrorMessage = NamesLenght,
                 MinimumLength = LastNameMinLength)]        
         public string LastName { get; set; } = null!;
 
@@ -36,18 +37,11 @@ namespace E_Commerce.Core.Models
         [Required]
         [EmailAddress]
         public string Email { get; set; } = null!;
+
         public string? PhoneNumber { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        public string Password { get; set; } = null!;
-
-        [Required]
-        public string PasswordConfirmed { get; set; } = null!;
-
-
-        public ICollection<AddressModel> Addresses { get; set; } = new List<AddressModel>();
-        public ICollection<ReviewModel> Reviews { get; set; } = new List<ReviewModel>();
-        public ICollection<OrderModel> Orders { get; set; } = new List<OrderModel>();
+        public string Password { get; set; } = null!;    
     }
 }

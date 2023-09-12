@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static E_Commerce.Infrastructure.Data.Common.Messages.AddressMessages;
+
 
 namespace E_Commerce.Core.Models
 {
@@ -16,16 +18,16 @@ namespace E_Commerce.Core.Models
         [Required]
         public string UserID { get; set; } = null!;
 
-        [Required(ErrorMessage = "Street is required.")]
+        [Required(ErrorMessage = StreetMessage)]
         public string Street { get; set; } = null!;
 
-        [Required(ErrorMessage = "City is required.")]
+        [Required(ErrorMessage = CityMessage)]
         public string City { get; set; } = null!;
 
-        [Required(ErrorMessage = "PostalCode is required.")]
+        [Required(ErrorMessage = PostalCodeMessage)]
         public string PostalCode { get; set; } = null!;
 
-        [Required(ErrorMessage = "Country is required.")]
+        [Required(ErrorMessage = CountryMessage)]
         public string Country { get; set; } = null!;
 
 

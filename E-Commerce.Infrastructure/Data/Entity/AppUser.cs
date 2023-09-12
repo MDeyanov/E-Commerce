@@ -21,8 +21,8 @@ namespace E_Commerce.Infrastructure.Data.Entity
         public string? ProfileImageURL { get; set; }
         public DateTime RegisteredAt { get; set; }
 
-        public ICollection<Address> Addresses { get; set; } = new List<Address>();
-        public ICollection<Review> Reviews { get; set; } = new List<Review>();
-        public ICollection<Order> Orders { get; set; } = new List<Order>();
+        public ICollection<Address>? Addresses { get; set; } = new List<Address>();
+        public ICollection<Review>? Reviews { get; set; } = new List<Review>();
+        public ICollection<Order>? Orders { get; set; } = new List<Order>();
     }
 }
