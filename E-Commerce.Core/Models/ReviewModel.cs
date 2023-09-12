@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static E_Commerce.Infrastructure.Data.Common.ValidationConstants.ReviewConstrains;
 
 namespace E_Commerce.Core.Models
 {
@@ -12,7 +10,7 @@ namespace E_Commerce.Core.Models
         public int ReviewID { get; set; }
 
         [Required(ErrorMessage = "UserID is required.")]
-        public string UserID { get; set; }
+        public string UserID { get; set; } = null!;
 
         [Required(ErrorMessage = "ProductID is required.")]
         public int ProductID { get; set; }
@@ -23,7 +21,7 @@ namespace E_Commerce.Core.Models
 
         [Required(ErrorMessage = "Comment is required.")]
         [StringLength(CommentMaxLength, ErrorMessage = "Comment length exceeds the maximum limit.")]
-        public string Comment { get; set; }
+        public string Comment { get; set; } = null!;
 
         public DateTime ReviewDate { get; set; }
     }
