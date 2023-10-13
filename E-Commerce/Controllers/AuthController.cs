@@ -19,10 +19,23 @@ namespace E_Commerce.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<bool> RegisterUser(AppUserModel model)
+        public async Task<IActionResult> RegisterUser([FromBody] AppUserModel model)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
+                 
+                var isUserExists =  await _authService.IsUserExists(model.Email);
+                if (isUserExists == false)
+                {
+                    BadRequest(new AuthResult()
+                    {
+                        Result = false,
+                        Errors = new List<string>()
+                        {
+                            ""
+                        }
+                    });
+                }
                BadRequest(ModelState);
             }
 

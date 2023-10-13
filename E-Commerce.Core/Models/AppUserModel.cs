@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using static E_Commerce.Infrastructure.Data.Common.ValidationConstants.UserConstraints;
 using static E_Commerce.Infrastructure.Data.Common.Messages.UserMessages;
+using System.Security.Claims;
 
 namespace E_Commerce.Core.Models
 {
@@ -42,6 +43,8 @@ namespace E_Commerce.Core.Models
 
         [Required]
         [DataType(DataType.Password)]
-        public string Password { get; set; } = null!;    
+        public string Password { get; set; } = null!;
+
+        public List<Claim> Claims { get; set; } = new List<Claim>();
     }
 }
